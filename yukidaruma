@@ -31,12 +31,7 @@
 const group = new THREE.Group();
 // 3D空間にグループを追加する
 scene.add(group); 
-//地面 
-var geometry = new THREE.BoxGeometry(10, 0.1, 10);
-    var material = new THREE.MeshLambertMaterial({ color: 0x883344 });
-    var box = new THREE.Mesh(geometry, material);
-    box.position.set( 0, -1, -10 );
-    group.add(box);
+
 //角柱〜円柱,目
 var cylinderGeometry = new THREE.CylinderGeometry( 0.1, 0.1, 0.1, 360 );
 //上の底面の半径、下の底面の半径、高さ、何角柱か
@@ -54,20 +49,43 @@ cylinder.position.set( 0.7, 1.9, -10.4 );
 cylinder.rotateY(1.8);
 group.add( cylinder );
 //角柱〜円柱,鼻
-var cylinderGeometry = new THREE.CylinderGeometry( 0.1, 0.1, 1, 360 );
+var cylinderGeometry = new THREE.CylinderGeometry( 0.1, 0.1, 0.9, 360 );
 //上の底面の半径、下の底面の半径、高さ、何角柱か
 var cylinderMaterial = new THREE.MeshLambertMaterial( {color: 0xaa2222} );
 var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
 cylinder.position.set( 0.9, 1.7, -10.4 );
 cylinder.rotation.z += 1.6;
 group.add( cylinder );
-//角柱〜円柱,ボタン
-var cylinderGeometry = new THREE.CylinderGeometry( 0.1, 0.1, 0.07, 360 );
+//角柱〜円柱,ボタン1
+var cylinderGeometry = new THREE.CylinderGeometry( 0.15, 0.15, 0.1, 360 );
 //上の底面の半径、下の底面の半径、高さ、何角柱か
 var cylinderMaterial = new THREE.MeshLambertMaterial( {color: 0xaa2200} );
 var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
-cylinder.position.set( 0.7, 1.4, -10.4 );
-cylinder.rotation.z += 1.4;
+cylinder.position.set( 0.94, 0.33, -10 );
+cylinder.rotation.z += 1.9;
+group.add( cylinder );
+//角柱〜円柱,ボタン2
+var cylinderGeometry = new THREE.CylinderGeometry( 0.15, 0.15, 0.1, 360 );
+//上の底面の半径、下の底面の半径、高さ、何角柱か
+var cylinderMaterial = new THREE.MeshLambertMaterial( {color: 0xaa2200} );
+var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
+cylinder.position.set( 1, 0, -10 );
+cylinder.rotation.z += 1.6;
+group.add( cylinder );
+//角柱〜円柱,ボタン3
+var cylinderGeometry = new THREE.CylinderGeometry( 0.15, 0.15, 0.1, 360 );
+//上の底面の半径、下の底面の半径、高さ、何角柱か
+var cylinderMaterial = new THREE.MeshLambertMaterial( {color: 0xaa2200} );
+var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
+cylinder.position.set( 0.94, -0.34, -10);
+cylinder.rotation.z += 1.3;
+group.add( cylinder );
+//角柱〜円柱,バケツ帽子
+var cylinderGeometry = new THREE.CylinderGeometry( 0.3, 0.5, 0.5, 360 );
+//上の底面の半径、下の底面の半径、高さ、何角柱か
+var cylinderMaterial = new THREE.MeshLambertMaterial( {color: 0xaa2200} );
+var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
+cylinder.position.set( 0, 2.4, -10 );
 group.add( cylinder );
 //角柱〜円柱,腕
 var cylinderGeometry = new THREE.CylinderGeometry( 0.05, 0.05, 2, 360 );
@@ -87,26 +105,28 @@ cylinder.position.set( 0.7, 0.6, -11 );
 cylinder.rotation.x -= 10;
 cylinder.rotation.z -= 2;
 group.add( cylinder );
-// 平面を作成
-var geometry = new THREE.PlaneGeometry( 50, 50, 1 );
-    var material = new THREE.MeshPhongMaterial( {color: 0xfff77f, side: THREE.DoubleSide} );
-    var plane = new THREE.Mesh( geometry, material );
-    plane.position.z = -15;
-    scene.add( plane );
+
     
-//球
+//球1
 var sphereGeometry = new THREE.SphereGeometry( 1, 360, 360 ); 
 //半径、垂直方向の分割数、水平方向の分割数
 var sphereMaterial = new THREE. MeshLambertMaterial( {color: 0xffffff,wireframe: true} );
 var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
 sphere.position.set( 0, 0, -10 );
 group.add( sphere );
-//球
+//球2
 var sphereGeometry = new THREE.SphereGeometry( 0.8, 360, 360 ); 
 //半径、垂直方向の分割数、水平方向の分割数
 var sphereMaterial = new THREE. MeshLambertMaterial( {color: 0xffffff,wireframe: true} );
 var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
 sphere.position.set( 0, 1.6, -10 );
+group.add( sphere );
+//球3
+var sphereGeometry = new THREE.SphereGeometry( 1.2, 360, 360 ); 
+//半径、垂直方向の分割数、水平方向の分割数
+var sphereMaterial = new THREE. MeshLambertMaterial( {color: 0xffffff,wireframe: true} );
+var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+sphere.position.set( 0, -2, -10 );
 group.add( sphere );
 
     // 平行光源1
