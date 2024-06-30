@@ -26,27 +26,29 @@
     var scene = new THREE.Scene();
   
     // カメラを作成
-    var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+    var camera = new THREE.PerspectiveCamera(45, width / height);
+    camera.position.set(8, 7, -2); //位置を指定
+    camera.lookAt(0, 0, -10); //見つめる方向
 // グループを作る
 const group = new THREE.Group();
 // 3D空間にグループを追加する
 scene.add(group); 
 
 //角柱〜円柱,目
-var cylinderGeometry = new THREE.CylinderGeometry( 0.1, 0.1, 0.1, 360 );
+var cylinderGeometry = new THREE.CylinderGeometry( 0.15, 0.15, 0.1, 360 );
 //上の底面の半径、下の底面の半径、高さ、何角柱か
 var cylinderMaterial = new THREE.MeshLambertMaterial( {color: 0x494a41} );
 var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
-cylinder.position.set( 0.6, 1.9, -9.6 );
-cylinder.rotateZ(1.8);
+cylinder.position.set( 0.7, 1.9, -9.8 );
+cylinder.rotation.z +=1.8;
 group.add( cylinder );
 //角柱〜円柱,目
 var cylinderGeometry = new THREE.CylinderGeometry( 0.15, 0.15, 0.1, 360 );
 //上の底面の半径、下の底面の半径、高さ、何角柱か
 var cylinderMaterial = new THREE.MeshLambertMaterial( {color: 0x494a41} );
 var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
-cylinder.position.set( 0.6, 1.9, -10.7 );
-cylinder.rotateY(1.8);
+cylinder.position.set( 0.7, 1.9, -10.2 );
+cylinder.rotation.z +=1.8;
 group.add( cylinder );
 //角柱〜円柱,鼻
 var cylinderGeometry = new THREE.CylinderGeometry( 0.15, 0.02, 0.9, 360 );
@@ -175,20 +177,14 @@ group.add( sphere );
   
     // 初回実行
     var update = function() {
-      requestAnimationFrame(update);
+    requestAnimationFrame(update);
   
   
-      // 箱を回転させる
-      //box.rotation.x += 0.01;
-      //box.rotation.y += 0.01;
-      //plane.rotation.x += 0.01;
-      //plane.rotation.y += 0.01;
-      //group.rotation.x += 0.01;
-      //group.rotation.y += 0.01;
-      group.rotation.z += 0.01;
-       
-  
-      renderer.render(scene, camera);
+    // 箱を回転させる
+    group.rotation.x += 0.01;
+    group.rotation.y += 0.01;
+    group.rotation.z += 0.01;
+    renderer.render(scene, camera);
     };
     update();
   }
